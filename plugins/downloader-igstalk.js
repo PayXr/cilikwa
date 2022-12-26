@@ -8,8 +8,8 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   if (json.status != 200) throw json
   conn.sendFile(m.chat, json.data.profilehd, 'eror.jpg', `*Nama:* ${json.data.fullname}\n*Bio:* ${json.data.bio}\n*Followers:* ${json.data.follower}\n*Following:* ${json.data.following}\n*Posts:* ${json.data.timeline}\n*Private:* ${json.data.private ? 'Ya' : 'Tidak'}\n\nhttp://instagram.com/beni_230`, m, 0, { thumbnail: await (await fetch(json.data.profilehd)).buffer() })
 }
-handler.help = ['igstalk <username>']
+handler.help = ['igs <username>']
 handler.tags = ['downloader']
-handler.command = /^(igstalk)$/i
+handler.command = /^(igs)$/i
 handler.limit = true
 module.exports = handler
